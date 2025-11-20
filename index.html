@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva Avanzado para Docentes - Guía Interactiva</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .module {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .module-number {
+            background: white;
+            color: #667eea;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .module-title {
+            flex: 1;
+            margin-left: 15px;
+            font-size: 1.5em;
+        }
+
+        .toggle-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .module-content.active {
+            max-height: 5000px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .activity {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .activity-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .activity-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .steps {
+            margin-top: 15px;
+        }
+
+        .step {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f0f4ff;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .tip {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip::before {
+            content: "💡 ";
+            font-size: 1.2em;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .resources {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .resources-title {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .resource-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #28a745;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+
+        .badge.intermediate {
+            background: #ffc107;
+        }
+
+        .badge.advanced {
+            background: #dc3545;
+        }
+
+        .completion-message {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            margin-top: 30px;
+        }
+
+        .completion-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .video-container {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .module-title {
+                font-size: 1.2em;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Canva Avanzado para Docentes</h1>
+            <p class="subtitle">De Básico a Experto: Domina las herramientas profesionales de Canva</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            <p id="completionText">Has completado <span id="completedCount">0</span> de <span id="totalCount">0</span> actividades</p>
+        </header>
+
+        <!-- MÓDULO 1: ELEMENTOS GRÁFICOS Y COMPOSICIÓN AVANZADA -->
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-number">1</div>
+                <div class="module-title">Elementos Gráficos y Composición Avanzada</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="module-content">
+                <div class="section">
+                    <div class="section-title">🎯 Objetivo del Módulo</div>
+                    <p>Dominar la creación de composiciones visuales profesionales utilizando elementos gráficos, degradados y técnicas de diseño avanzadas.</p>
+                    <div class="badge intermediate">Nivel: Intermedio-Avanzado</div>
+                    <div class="badge">Duración: 2-3 horas</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">A1</div>
+                        <div class="activity-title">Texto Degradado que Llama la Atención</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear títulos impactantes para presentaciones, infografías educativas o material promocional de eventos escolares.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Abre Canva y crea un diseño personalizado de 1920x1080px (ideal para presentaciones)</div>
+                        <div class="step"><strong>Paso 2:</strong> Selecciona la herramienta de texto (T) y escribe tu título (ejemplo: "INNOVACIÓN EDUCATIVA")</div>
+                        <div class="step"><strong>Paso 3:</strong> Con el texto seleccionado, haz clic en el color del texto en la barra superior</div>
+                        <div class="step"><strong>Paso 4:</strong> En el panel de colores, busca la opción "Degradado" (ícono con dos colores)</div>
+                        <div class="step"><strong>Paso 5:</strong> Selecciona un degradado prediseñado o crea uno personalizado eligiendo 2-3 colores</div>
+                        <div class="step"><strong>Paso 6:</strong> Ajusta la dirección del degradado (horizontal, vertical, diagonal) usando las flechas</div>
+                        <div class="step"><strong>Paso 7:</strong> Experimenta con diferentes fuentes (prueba: Montserrat Bold, Bebas Neue, Anton)</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Consejo Pro:</strong> Para títulos educativos, usa degradados que vayan de colores claros a oscuros para mejor legibilidad. Combina con sombras paralelas para mayor impacto.
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity1_1" onchange="updateProgress()">
+                        <label for="activity1_1">He completado esta actividad y creado mi primer texto degradado</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">A2</div>
+                        <div class="activity-title">Generación con IA: Elementos Únicos para tu Contenido</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear recursos visuales personalizados que no encontrarás en bancos de imágenes genéricos.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> En tu diseño, ve al menú lateral izquierdo y selecciona "Elementos"</div>
+                        <div class="step"><strong>Paso 2:</strong> Busca la sección "Magic Media" o "Generar imagen con IA"</div>
+                        <div class="step"><strong>Paso 3:</strong> Escribe un prompt descriptivo en español (ejemplo: "isla tropical en forma de corazón, vista aérea, colores vibrantes, estilo fotorrealista")</div>
+                        <div class="step"><strong>Paso 4:</strong> Selecciona el estilo: Fotografía, Arte digital, 3D, Acuarela, etc.</div>
+                        <div class="step"><strong>Paso 5:</strong> Haz clic en "Generar imagen" y espera 10-15 segundos</div>
+                        <div class="step"><strong>Paso 6:</strong> Revisa las 4 opciones generadas y selecciona la mejor</div>
+                        <div class="step"><strong>Paso 7:</strong> Ajusta el tamaño, posición y aplica efectos si es necesario</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Prompts Efectivos para Docentes:</strong><br>
+                        • "Aula futurista con tecnología holográfica, estudiantes diversos, iluminación cálida"<br>
+                        • "Cerebro digital con conexiones de neuronas brillantes, estilo minimalista, fondo oscuro"<br>
+                        • "Niños explorando ciencia con microscopio, ilustración colorida, estilo cartoon educativo"
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity1_2" onchange="updateProgress()">
+                        <label for="activity1_2">He generado al menos 3 imágenes diferentes con IA</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">A3</div>
+                        <div class="activity-title">Diseño de Email Marketing Educativo</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear comunicaciones profesionales para enviar a padres, estudiantes o colegas.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> En Canva, busca "Email" en la barra de búsqueda y selecciona una plantilla</div>
+                        <div class="step"><strong>Paso 2:</strong> Personaliza el encabezado con el logo de tu institución (usa "Quitar fondo" si es necesario)</div>
+                        <div class="step"><strong>Paso 3:</strong> Aplica la paleta de colores institucional: ve a "Marca" → "Kit de marca" → configura tus colores</div>
+                        <div class="step"><strong>Paso 4:</strong> Crea secciones claras: Saludo, Contenido principal, Llamado a la acción, Despedida</div>
+                        <div class="step"><strong>Paso 5:</strong> Usa iconos coherentes de la misma familia (busca "education icons" o "academic icons")</div>
+                        <div class="step"><strong>Paso 6:</strong> Inserta botones de acción con enlaces: "Ver más información", "Inscribirse aquí"</div>
+                        <div class="step"><strong>Paso 7:</strong> Revisa en modo "Vista previa" y exporta como PDF o comparte el enlace</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Anatomía de un Email Educativo Efectivo:</strong><br>
+                        ✅ Asunto atractivo en el encabezado<br>
+                        ✅ Máximo 3 párrafos de texto<br>
+                        ✅ Imágenes relevantes que complementen el mensaje<br>
+                        ✅ CTA (Call To Action) claro y visible<br>
+                        ✅ Información de contacto al pie
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity1_3" onchange="updateProgress()">
+                        <label for="activity1_3">He diseñado un email completo sobre un evento o noticia educativa</label>
+                    </div>
+                </div>
+
+                <div class="resources">
+                    <div class="resources-title">📚 Recursos Complementarios</div>
+                    <div class="resource-item">🎨 Paletas de colores educativas: Coolors.co, Adobe Color</div>
+                    <div class="resource-item">🖼️ Bancos de íconos gratuitos: Flaticon, Icons8</div>
+                    <div class="resource-item">📖 Guía de tipografía para educación: Google Fonts</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MÓDULO 2: VIDEO Y MULTIMEDIA INTERACTIVA -->
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-number">2</div>
+                <div class="module-title">Video y Multimedia Interactiva</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="module-content">
+                <div class="section">
+                    <div class="section-title">🎯 Objetivo del Módulo</div>
+                    <p>Crear contenido audiovisual educativo de calidad profesional utilizando las herramientas de edición de video de Canva.</p>
+                    <div class="badge advanced">Nivel: Avanzado</div>
+                    <div class="badge">Duración: 3-4 horas</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">B1</div>
+                        <div class="activity-title">Edición de Video con Línea de Tiempo Avanzada</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear video-lecciones, tutoriales, o contenido flip classroom con edición profesional.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Crea un nuevo diseño de "Video" (selecciona el formato: Instagram Reels, YouTube, TikTok, etc.)</div>
+                        <div class="step"><strong>Paso 2:</strong> Sube tus clips de video o selecciona videos de stock desde "Elementos" → "Videos"</div>
+                        <div class="step"><strong>Paso 3:</strong> Arrastra los videos a la línea de tiempo en la parte inferior de la pantalla</div>
+                        <div class="step"><strong>Paso 4:</strong> Haz clic en cada clip para acceder a "Editar video": recortar, dividir, ajustar velocidad</div>
+                        <div class="step"><strong>Paso 5:</strong> Usa "Dividir" para cortar partes innecesarias (posiciona el cursor y haz clic en el ícono de tijeras)</div>
+                        <div class="step"><strong>Paso 6:</strong> Añade transiciones entre clips: selecciona el espacio entre dos clips → elige una transición</div>
+                        <div class="step"><strong>Paso 7:</strong> Ajusta la duración de cada clip arrastrando los bordes en la línea de tiempo</div>
+                        <div class="step"><strong>Paso 8:</strong> Añade efectos de movimiento: selecciona un elemento → "Animar" → elige el efecto</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Estructura de un Video Educativo Efectivo:</strong><br>
+                        0-5 seg: Hook/Gancho (pregunta o declaración impactante)<br>
+                        5-15 seg: Introducción del tema<br>
+                        15-90 seg: Contenido principal (máximo 3 puntos clave)<br>
+                        90-100 seg: Resumen y llamado a la acción
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity2_1" onchange="updateProgress()">
+                        <label for="activity2_1">He editado un video educativo de al menos 60 segundos con múltiples clips</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">B2</div>
+                        <div class="activity-title">Subtítulos Automáticos y Personalización de Audio</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Hacer el contenido accesible para estudiantes con necesidades especiales o que hablan otros idiomas.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> En tu proyecto de video, ve a "Subtítulos" en el menú lateral</div>
+                        <div class="step"><strong>Paso 2:</strong> Haz clic en "Generar subtítulos automáticamente" y selecciona el idioma</div>
+                        <div class="step"><strong>Paso 3:</strong> Espera 30-60 segundos mientras Canva transcribe el audio</div>
+                        <div class="step"><strong>Paso 4:</strong> Revisa y edita los subtítulos haciendo clic en cada segmento de texto</div>
+                        <div class="step"><strong>Paso 5:</strong> Personaliza el estilo: fuente, tamaño, color, fondo, posición en pantalla</div>
+                        <div class="step"><strong>Paso 6:</strong> Añade efectos a los subtítulos: "Animar" → "Fade", "Pop", "Typewriter"</div>
+                        <div class="step"><strong>Paso 7:</strong> Para el audio, ve a "Audio" en el menú lateral y añade música de fondo</div>
+                        <div class="step"><strong>Paso 8:</strong> Ajusta el volumen de la música (recomendado: 20-30%) para que no compita con la voz</div>
+                        <div class="step"><strong>Paso 9:</strong> Usa "Efectos de audio" para mejorar la calidad: reducir ruido, ecualizar</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Mejores Prácticas para Subtítulos Educativos:</strong><br>
+                        • Usa fuentes sans-serif (Arial, Helvetica) para mejor legibilidad<br>
+                        • Coloca subtítulos en la parte inferior, centrados<br>
+                        • Añade un fondo semi-transparente negro para contraste<br>
+                        • Mantén máximo 2 líneas de texto por segmento<br>
+                        • Sincroniza bien con el audio (pausa natural)
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity2_2" onchange="updateProgress()">
+                        <label for="activity2_2">He añadido subtítulos automáticos y música de fondo a mi video</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">B3</div>
+                        <div class="activity-title">Efectos Visuales Avanzados: Pantalla Verde y Máscaras</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear presentaciones impactantes donde tú apareces junto a contenido digital, ideal para clases en línea.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Graba un video frente a un fondo verde (o usa un video existente)</div>
+                        <div class="step"><strong>Paso 2:</strong> Sube el video a Canva y añádelo a tu proyecto</div>
+                        <div class="step"><strong>Paso 3:</strong> Selecciona el video → "Editar video" → "Quitar fondo"</div>
+                        <div class="step"><strong>Paso 4:</strong> Espera mientras Canva procesa y elimina el fondo verde automáticamente</div>
+                        <div class="step"><strong>Paso 5:</strong> Ajusta la posición y tamaño de tu video (esquina o lateral de la pantalla)</div>
+                        <div class="step"><strong>Paso 6:</strong> Añade contenido detrás: diapositivas, gráficos, videos complementarios</div>
+                        <div class="step"><strong>Paso 7:</strong> Para máscaras creativas: selecciona una imagen → "Editar imagen" → "Marcos"</div>
+                        <div class="step"><strong>Paso 8:</strong> Elige formas como círculos, corazones, estrellas para enmarcar contenido</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Setup Básico para Pantalla Verde Casera:</strong><br>
+                        📱 Smartphone con cámara HD<br>
+                        🟢 Tela verde lisa (evita arrugas)<br>
+                        💡 Iluminación uniforme (2 fuentes de luz)<br>
+                        📏 Distancia: 1-2 metros del fondo<br>
+                        👔 Ropa: evita colores verdes
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity2_3" onchange="updateProgress()">
+                        <label for="activity2_3">He experimentado con eliminación de fondo o máscaras en video</label>
+                    </div>
+                </div>
+
+                <div class="resources">
+                    <div class="resources-title">📚 Recursos Complementarios</div>
+                    <div class="resource-item">🎵 Música libre de derechos: YouTube Audio Library, Pixabay Music</div>
+                    <div class="resource-item">🎬 Tutoriales de edición: Canva Design School (YouTube)</div>
+                    <div class="resource-item">🎤 Mejorar audio: Audacity (gratuito)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MÓDULO 3: DISEÑO 3D Y ELEMENTOS INTERACTIVOS -->
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-number">3</div>
+                <div class="module-title">Diseño 3D y Elementos Interactivos</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="module-content">
+                <div class="section">
+                    <div class="section-title">🎯 Objetivo del Módulo</div>
+                    <p>Incorporar elementos tridimensionales y crear diseños con profundidad visual que cautiven a los estudiantes.</p>
+                    <div class="badge advanced">Nivel: Avanzado</div>
+                    <div class="badge">Duración: 2-3 horas</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">C1</div>
+                        <div class="activity-title">Personajes y Objetos 3D Personalizables</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear infografías modernas, presentaciones impactantes o material didáctico visual con profundidad.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Ve a "Elementos" → busca "3D" en la barra de búsqueda</div>
+                        <div class="step"><strong>Paso 2:</strong> Explora las categorías: personajes, objetos, formas geométricas, animales</div>
+                        <div class="step"><strong>Paso 3:</strong> Arrastra un elemento 3D a tu diseño (ejemplo: un personaje estudiando)</div>
+                        <div class="step"><strong>Paso 4:</strong> Haz clic en "Personalizar" para cambiar colores de diferentes partes del objeto</div>
+                        <div class="step"><strong>Paso 5:</strong> Ajusta la rotación usando los controles circulares alrededor del objeto</div>
+                        <div class="step"><strong>Paso 6:</strong> Combina múltiples elementos 3D para crear escenas (ejemplo: aula virtual)</div>
+                        <div class="step"><strong>Paso 7:</strong> Añade sombras realistas: "Efectos" → "Sombra" → ajusta ángulo y difuminado</div>
+                        <div class="step"><strong>Paso 8:</strong> Usa capas para crear profundidad: coloca elementos en primer, segundo y tercer plano</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Combinaciones 3D Efectivas para Educación:</strong><br>
+                        🎓 Escena de graduación: birrete + diploma + confeti<br>
+                        🔬 Laboratorio: microscopio + tubos de ensayo + moléculas<br>
+                        📚 Biblioteca: estantes + libros apilados + lámpara<br>
+                        💻 Tecnología: laptop + tablet + auriculares + íconos flotantes
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity3_1" onchange="updateProgress()">
+                        <label for="activity3_1">He creado una composición con al menos 3 elementos 3D personalizados</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">C2</div>
+                        <div class="activity-title">Efectos de Profundidad y Perspectiva</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Hacer que presentaciones planas se vean dinámicas y profesionales con sensación de tridimensionalidad.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Crea un diseño base (ejemplo: diapositiva de presentación)</div>
+                        <div class="step"><strong>Paso 2:</strong> Añade un fondo degradado que simule profundidad (claro arriba, oscuro abajo)</div>
+                        <div class="step"><strong>Paso 3:</strong> Inserta formas geométricas básicas (rectángulos, círculos)</div>
+                        <div class="step"><strong>Paso 4:</strong> Selecciona una forma → "Efectos" → "Sombra paralela"</div>
+                        <div class="step"><strong>Paso 5:</strong> Ajusta: Desplazamiento (30-50), Difuminado (20-40), Transparencia (50-70%)</div>
+                        <div class="step"><strong>Paso 6:</strong> Crea múltiples capas con diferentes intensidades de sombra</div>
+                        <div class="step"><strong>Paso 7:</strong> Usa "Levantado" para dar sensación de elevación a elementos importantes</div>
+                        <div class="step"><strong>Paso 8:</strong> Aplica "Resplandor exterior" con colores sutiles para resaltar elementos clave</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Jerarquía Visual con Profundidad:</strong><br>
+                        Primer plano (más cerca): Sombra intensa, colores saturados, mayor tamaño<br>
+                        Segundo plano (medio): Sombra moderada, colores medios<br>
+                        Fondo: Sombra sutil o sin sombra, colores desaturados, menor tamaño
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity3_2" onchange="updateProgress()">
+                        <label for="activity3_2">He aplicado efectos de profundidad a una presentación completa</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">C3</div>
+                        <div class="activity-title">Animaciones Avanzadas y Timing Preciso</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear presentaciones dinámicas que mantengan la atención y faciliten la comprensión secuencial.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> En tu diseño, selecciona un elemento que desees animar</div>
+                        <div class="step"><strong>Paso 2:</strong> Haz clic en "Animar" en la barra superior</div>
+                        <div class="step"><strong>Paso 3:</strong> Explora las opciones: Ascenso, Descenso, Fade, Pop, Wipe, Pan, Breathe</div>
+                        <div class="step"><strong>Paso 4:</strong> Selecciona una animación y ajusta la duración (0.5s - 3s según el efecto)</div>
+                        <div class="step"><strong>Paso 5:</strong> Para animar múltiples elementos: selecciona el segundo elemento → "Animar"</div>
+                        <div class="step"><strong>Paso 6:</strong> En el panel de animación, arrastra para cambiar el orden de aparición</div>
+                        <div class="step"><strong>Paso 7:</strong> Usa "Reproducir" para previsualizar toda la secuencia</div>
+                        <div class="step"><strong>Paso 8:</strong> Crea una presentación de 5-10 diapositivas con transiciones fluidas entre cada una</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Timing Ideal para Animaciones Educativas:</strong><br>
+                        • Títulos principales: 1-1.5 segundos (impacto rápido)<br>
+                        • Textos explicativos: 0.5-0.8 segundos (suave)<br>
+                        • Imágenes/gráficos: 0.8-1.2 segundos (medio)<br>
+                        • Transiciones entre diapositivas: 0.3-0.5 segundos<br>
+                        Regla: Nunca más de 3 elementos animándose simultáneamente
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity3_3" onchange="updateProgress()">
+                        <label for="activity3_3">He creado una presentación animada de al menos 5 diapositivas</label>
+                    </div>
+                </div>
+
+                <div class="resources">
+                    <div class="resources-title">📚 Recursos Complementarios</div>
+                    <div class="resource-item">🎨 Teoría del color y profundidad: Adobe Color Wheel</div>
+                    <div class="resource-item">📐 Principios de diseño 3D: The Futur (YouTube)</div>
+                    <div class="resource-item">✨ Galería de inspiración: Behance, Dribbble</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MÓDULO 4: AUTOMATIZACIÓN Y PLANTILLAS MAESTRAS -->
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-number">4</div>
+                <div class="module-title">Automatización y Plantillas Maestras</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="module-content">
+                <div class="section">
+                    <div class="section-title">🎯 Objetivo del Módulo</div>
+                    <p>Optimizar el flujo de trabajo creando sistemas reutilizables que ahorren tiempo en la producción de contenido educativo.</p>
+                    <div class="badge advanced">Nivel: Avanzado</div>
+                    <div class="badge">Duración: 2-3 horas</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">D1</div>
+                        <div class="activity-title">Kit de Marca Educativa Personalizado</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Mantener coherencia visual en todos los materiales de tu institución o curso.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Ve a "Marca" en el menú lateral izquierdo (necesitas Canva Pro)</div>
+                        <div class="step"><strong>Paso 2:</strong> Haz clic en "Crear kit de marca" o edita uno existente</div>
+                        <div class="step"><strong>Paso 3:</strong> Sube el logo de tu institución (formatos PNG, SVG, PDF - mínimo 500x500px)</div>
+                        <div class="step"><strong>Paso 4:</strong> Define la paleta de colores: añade colores primarios (2-3) y secundarios (3-4)</div>
+                        <div class="step"><strong>Paso 5:</strong> Usa el selector de color desde el logo para extraer colores automáticamente</div>
+                        <div class="step"><strong>Paso 6:</strong> Selecciona tipografías consistentes: 1 para títulos, 1 para cuerpo de texto</div>
+                        <div class="step"><strong>Paso 7:</strong> Guarda elementos recurrentes como íconos, marcos, o plantillas de fondo</div>
+                        <div class="step"><strong>Paso 8:</strong> Prueba aplicando tu kit de marca a diferentes tipos de diseño</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Elementos Esenciales de un Kit de Marca Educativa:</strong><br>
+                        🎨 Paleta: Color institucional + 2 colores complementarios + neutros<br>
+                        📝 Tipografía: 1 sans-serif moderna + 1 serif para énfasis<br>
+                        🖼️ Logo: Versión completa + versión simplificada/isotipo<br>
+                        📐 Plantillas: Certificado, diploma, carta membretada, presentación<br>
+                        🎯 Estilo visual: Fotografías, ilustraciones o ambos
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity4_1" onchange="updateProgress()">
+                        <label for="activity4_1">He creado y configurado completamente mi kit de marca</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">D2</div>
+                        <div class="activity-title">Plantillas Maestras Reutilizables</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear una vez, usar infinitas veces: agiliza la producción de materiales similares.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Diseña una estructura base (ejemplo: plantilla de clase diaria)</div>
+                        <div class="step"><strong>Paso 2:</strong> Incluye elementos fijos: encabezado, pie de página, espacios para logo</div>
+                        <div class="step"><strong>Paso 3:</strong> Usa "Cajas de texto" placeholder con formato predefinido</div>
+                        <div class="step"><strong>Paso 4:</strong> Crea secciones modulares que puedas activar/desactivar fácilmente</div>
+                        <div class="step"><strong>Paso 5:</strong> Guarda como plantilla: "Archivo" → "Guardar como plantilla"</div>
+                        <div class="step"><strong>Paso 6:</strong> Organiza tus plantillas en carpetas: "Mis diseños" → crear carpetas temáticas</div>
+                        <div class="step"><strong>Paso 7:</strong> Prueba duplicando la plantilla y personalizando el contenido</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Plantillas Maestras Indispensables para Docentes:</strong><br>
+                        📊 Presentación de clase (10-15 diapositivas base)<br>
+                        📄 Hoja de trabajo/Actividad (con espacio para instrucciones)<br>
+                        📈 Infografía educativa (con secciones para datos/estadísticas)<br>
+                        🎓 Certificado de logro/participación<br>
+                        📧 Newsletter o boletín informativo mensual<br>
+                        📅 Calendario académico visual
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity4_2" onchange="updateProgress()">
+                        <label for="activity4_2">He creado al menos 3 plantillas maestras diferentes</label>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">D3</div>
+                        <div class="activity-title">Generación Masiva con Datos (Bulk Create)</div>
+                    </div>
+                    <p><strong>Aplicación Pedagógica:</strong> Crear certificados, credenciales o materiales personalizados para múltiples estudiantes automáticamente.</p>
+                    
+                    <div class="steps">
+                        <div class="step"><strong>Paso 1:</strong> Crea un diseño base (ejemplo: certificado de curso)</div>
+                        <div class="step"><strong>Paso 2:</strong> Identifica los elementos variables: nombre del estudiante, fecha, calificación, etc.</div>
+                        <div class="step"><strong>Paso 3:</strong> Ve a "Apps" → busca "Bulk Create" o "Combinación de correspondencia"</div>
+                        <div class="step"><strong>Paso 4:</strong> Conecta tus datos: sube un CSV o conecta Google Sheets</div>
+                        <div class="step"><strong>Paso 5:</strong> Tu archivo debe tener columnas: Nombre, Apellido, Fecha, etc.</div>
+                        <div class="step"><strong>Paso 6:</strong> En Canva, selecciona el texto a reemplazar → "Conectar datos"</div>
+                        <div class="step"><strong>Paso 7:</strong> Asigna cada elemento a su columna correspondiente</div>
+                        <div class="step"><strong>Paso 8:</strong> Haz clic en "Generar" y Canva creará todas las versiones automáticamente</div>
+                        <div class="step"><strong>Paso 9:</strong> Descarga todo como PDF individual o ZIP</div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Formato del archivo CSV para Bulk Create:</strong><br>
+                        Nombre,Apellido,Curso,Fecha,Calificación<br>
+                        María,González,Matemáticas,20/11/2025,9.5<br>
+                        Juan,Pérez,Matemáticas,20/11/2025,8.7<br>
+                        <br>
+                        💡 Usa Google Sheets para facilitar la edición colaborativa<br>
+                        💡 Mantén los nombres de columna simples (sin espacios ni caracteres especiales)
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity4_3" onchange="updateProgress()">
+                        <label for="activity4_3">He generado al menos 5 documentos personalizados usando datos masivos</label>
+                    </div>
+                </div>
+
+                <div class="resources">
+                    <div class="resources-title">📚 Recursos Complementarios</div>
+                    <div class="resource-item">📊 Gestión de hojas de cálculo: Google Sheets</div>
+                    <div class="resource-item">🎨 Inspiración de kits de marca: Brandbook ejemplos</div>
+                    <div class="resource-item">⚡ Automatizaciones adicionales: Zapier + Canva</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MÓDULO 5: PROYECTO FINAL INTEGRADOR -->
+        <div class="module">
+            <div class="module-header" onclick="toggleModule(this)">
+                <div class="module-number">5</div>
+                <div class="module-title">Proyecto Final Integrador</div>
+                <div class="toggle-icon">▼</div>
+            </div>
+            <div class="module-content">
+                <div class="section">
+                    <div class="section-title">🎯 Objetivo del Proyecto</div>
+                    <p>Aplicar todas las habilidades aprendidas en un proyecto completo que puedas usar inmediatamente en tu práctica docente.</p>
+                    <div class="badge advanced">Nivel: Integración Total</div>
+                    <div class="badge">Duración: 4-6 horas</div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">
+                        <div class="activity-icon">⭐</div>
+                        <div class="activity-title">Proyecto: Campaña Educativa Multimedia Completa</div>
+                    </div>
+                    <p><strong>Objetivo:</strong> Crear una campaña completa para promocionar un programa, evento o iniciativa educativa usando todas las herramientas avanzadas de Canva.</p>
+                    
+                    <div class="section">
+                        <div class="section-title">Componentes del Proyecto (Debes crear TODOS):</div>
+                        
+                        <div class="step">
+                            <strong>1. Video Promocional (60-90 segundos)</strong><br>
+                            • Usa clips de video y elementos 3D<br>
+                            • Aplica eliminación de fondo si tienes material propio<br>
+                            • Añade subtítulos automáticos y música<br>
+                            • Incluye al menos 3 transiciones diferentes<br>
+                            • Exporta en formato: YouTube (16:9) y Stories (9:16)
+                        </div>
+
+                        <div class="step">
+                            <strong>2. Presentación Interactiva (15-20 diapositivas)</strong><br>
+                            • Aplica tu kit de marca consistentemente<br>
+                            • Usa elementos 3D en al menos 5 diapositivas<br>
+                            • Implementa texto degradado en títulos principales<br>
+                            • Añade animaciones sincronizadas<br>
+                            • Incluye efectos de profundidad en todos los elementos
+                        </div>
+
+                        <div class="step">
+                            <strong>3. Infografía Impactante (Vertical)</strong><br>
+                            • Genera al menos 1 imagen única con IA<br>
+                            • Usa gráficos de datos (barras, círculos)<br>
+                            • Aplica jerarquía visual con tamaños y colores<br>
+                            • Formato: 1080x1920px (óptimo para redes sociales)<br>
+                            • Descarga en PNG y PDF
+                        </div>
+
+                        <div class="step">
+                            <strong>4. Email Marketing Profesional</strong><br>
+                            • Diseño responsive (que se vea bien en móvil)<br>
+                            • Incluye botones de CTA con enlaces<br>
+                            • Usa imágenes optimizadas<br>
+                            • Mantén coherencia con tu kit de marca<br>
+                            • Máximo 800px de ancho
+                        </div>
+
+                        <div class="step">
+                            <strong>5. Certificados Personalizados (mínimo 10)</strong><br>
+                            • Usa Bulk Create con datos de muestra<br>
+                            • Incluye elementos 3D decorativos<br>
+                            • Aplica efectos de profundidad<br>
+                            • Formato: PDF de alta calidad<br>
+                            • Preparado para impresión (300 DPI)
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>Criterios de Evaluación del Proyecto:</strong><br>
+                        ✅ Coherencia visual entre todos los elementos (20%)<br>
+                        ✅ Uso efectivo de herramientas avanzadas (30%)<br>
+                        ✅ Creatividad e innovación (20%)<br>
+                        ✅ Aplicabilidad pedagógica real (20%)<br>
+                        ✅ Calidad técnica de exportación (10%)
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity5_1" onchange="updateProgress()">
+                        <label for="activity5_1">He completado el video promocional</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity5_2" onchange="updateProgress()">
+                        <label for="activity5_2">He completado la presentación interactiva</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity5_3" onchange="updateProgress()">
+                        <label for="activity5_3">He completado la infografía</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity5_4" onchange="updateProgress()">
+                        <label for="activity5_4">He completado el email marketing</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="activity5_5" onchange="updateProgress()">
+                        <label for="activity5_5">He generado los certificados personalizados</label>
+                    </div>
+                </div>
+
+                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 30px;">
+                    <div class="section-title" style="color: white;">🎓 Reflexión Final</div>
+                    <p>Una vez completado el proyecto, reflexiona:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>¿Qué herramienta avanzada te resultó más útil?</li>
+                        <li>¿Cómo aplicarás estas habilidades en tu siguiente clase?</li>
+                        <li>¿Qué elemento del proyecto compartirías con tus estudiantes?</li>
+                        <li>¿Qué técnica te gustaría explorar más a fondo?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENSAJE DE COMPLETACIÓN -->
+        <div class="completion-message" id="completionMessage">
+            <h2>🎉 ¡Felicidades! Has Completado el Curso</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">Has dominado las herramientas avanzadas de Canva y estás listo para crear contenido educativo de nivel profesional.</p>
+            <div style="margin-top: 20px;">
+                <p><strong>Próximos Pasos:</strong></p>
+                <p>✓ Comparte tu proyecto final con colegas</p>
+                <p>✓ Únete a comunidades de diseño educativo</p>
+                <p>✓ Explora las nuevas funciones que Canva lanza mensualmente</p>
+                <p>✓ Capacita a otros docentes con lo que has aprendido</p>
+            </div>
+            <button class="btn" onclick="window.print()">Imprimir Certificado de Finalización</button>
+        </div>
+
+        <!-- BOTÓN DE DESCARGA -->
+        <div style="text-align: center; margin: 30px 0;">
+            <button class="btn" onclick="window.print()">📄 Imprimir Guía Completa</button>
+            <button class="btn" onclick="resetProgress()">🔄 Reiniciar Progreso</button>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de progreso
+        let totalActivities = 0;
+        let completedActivities = 0;
+
+        function initializeProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            totalActivities = checkboxes.length;
+            document.getElementById('totalCount').textContent = totalActivities;
+            
+            // Cargar progreso guardado
+            checkboxes.forEach(checkbox => {
+                const saved = localStorage.getItem(checkbox.id);
+                if (saved === 'true') {
+                    checkbox.checked = true;
+                }
+            });
+            
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            completedActivities = 0;
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    completedActivities++;
+                    localStorage.setItem(checkbox.id, 'true');
+                } else {
+                    localStorage.setItem(checkbox.id, 'false');
+                }
+            });
+            
+            const percentage = Math.round((completedActivities / totalActivities) * 100);
+            
+            document.getElementById('progressBar').style.width = percentage + '%';
+            document.getElementById('progressBar').textContent = percentage + '%';
+            document.getElementById('completedCount').textContent = completedActivities;
+            
+            // Mostrar mensaje de completación
+            if (completedActivities === totalActivities) {
+                document.getElementById('completionMessage').classList.add('show');
+            } else {
+                document.getElementById('completionMessage').classList.remove('show');
+            }
+        }
+
+        function toggleModule(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '▼';
+            } else {
+                content.classList.add('active');
+                icon.textContent = '▲';
+            }
+        }
+
+        function resetProgress() {
+            if (confirm('¿Estás seguro de que deseas reiniciar todo el progreso? Esta acción no se puede deshacer.')) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+
+        // Inicializar al cargar la página
+        window.onload = initializeProgress;
+    </script>
+</body>
+</html>
